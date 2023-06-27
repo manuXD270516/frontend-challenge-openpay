@@ -7,6 +7,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CharactersComponent } from './components/characters/characters.component';
+import { LogsComponent } from './components/logs/logs.component';
 import { HeaderComponent } from './components/partials/header/header.component';
 import { FooterComponent } from './components/partials/footer/footer.component';
 import { BannerComponent } from './components/partials/banner/banner.component';
@@ -21,6 +22,7 @@ import { ListGroupComponent } from './components/partials/list-group/list-group.
   declarations: [
     AppComponent,
     CharactersComponent,
+    LogsComponent,
     HeaderComponent,
     FooterComponent,
     BannerComponent,

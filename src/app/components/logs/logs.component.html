@@ -1,0 +1,47 @@
+<!-- search -->
+<app-search title="stories" (searchEvent)="onSearch($event)"></app-search>
+
+<!-- not found -->
+<app-not-found [notFound]="notFound"></app-not-found>
+
+<!-- loader -->
+<app-loader [status]="!logs.length && !notFound"></app-loader>
+
+<!-- list -->
+<div class="row" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
+    <div class="col">
+        <ul class="list-group">
+            <li *ngFor="let log of logs" (click)="onClick(log)" class="list-group-item">
+                <h6>{{log.id | uppercase}} - {{log.requestName}}</h6>
+                {{log.createdAt}}
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- view -->
+<div class="modal" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-body">
+                <ng-container *ngIf="log">
+                    <h1 class="text-primary">{{log.requestName | uppercase}} - {{log.id}}</h1>
+                    <p [innerHtml]="log.createdAt"></p>
+        
+                    
+                    <!-- <app-list-group title="Characters" [items]="story.characters.items"></app-list-group>
+        
+                    <app-list-group title="Creators" [items]="story.creators.items"></app-list-group>
+        
+                    <app-list-group title="Events" [items]="story.events.items"></app-list-group>
+        
+                    <app-list-group title="Comics" [items]="story.comics.items"></app-list-group>
+        
+                    <app-list-group title="Series" [items]="story.series.items"></app-list-group> -->
+        
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

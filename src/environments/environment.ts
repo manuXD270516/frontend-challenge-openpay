@@ -9,6 +9,7 @@ export const environment = {
     apiLogin: "/authenticate",
     apiLogout: "/logout",
     charactersApi: "/characters",
+    logsApi:'/logs'
   }
 };
 

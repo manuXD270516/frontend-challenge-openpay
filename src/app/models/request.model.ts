@@ -5,4 +5,4 @@ export interface MarvelRequestOptions {
     titleStartsWith?: string;
 }
 
-export type Category = 'characters' ;
+export type Category = 'characters' | 'logs' ;

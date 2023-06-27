@@ -26,9 +26,9 @@ export class MarvelService {
   }
 
   getData(category: Category, options?: MarvelRequestOptions | undefined): Observable<any| undefined> {
-    if (this.cache[category] && options?.offset === 0 && !(options?.nameStartsWith || options?.titleStartsWith)) {
+    /*if (this.cache[category] && options?.offset === 0 && !(options?.nameStartsWith || options?.titleStartsWith)) {
       return of(this.cache[category]);
-    }
+    }*/
  
     let url = `${this.url}` //${category}`;
     if (options) {
@@ -46,7 +46,7 @@ export class MarvelService {
           } else {
             
           }*/
-          this.cache[category] = response;
+          //this.cache[category] = response;
         }
         return response;
       } else {
