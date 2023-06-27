@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
@@ -17,6 +17,7 @@ import { LoaderComponent } from './components/partials/loader/loader.component';
 import { SearchComponent } from './components/partials/search/search.component';
 import { ListComponent } from './components/partials/list/list.component';
 import { ListGroupComponent } from './components/partials/list-group/list-group.component';
+import { AuthInterceptor } from './interceptors/auth';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,9 @@ import { ListGroupComponent } from './components/partials/list-group/list-group.
     InfiniteScrollModule,
     FontAwesomeModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
+  }],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
